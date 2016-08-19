@@ -1,0 +1,12 @@
+.mui-container-fluid
+  .mui--text-center
+    h2
+      ' Messages for
+      span style='color: blue;'
+        = @chatroom.topic
+  .mui-panel.mui--z2
+    = simple_form_for [@chatroom, @message], remote: true, authenticity_token: true do |f|
+      = f.input :content, label: false, wrapper_html: {class: 'mui-textfield'}, placeholder: 'Topic name'
+      = f.button :submit, 'Say to room', class: 'mui-btn mui-btn--raised'
+  ul#messages
+    = render partial: 'messages/message', collection: @chatroom.messages

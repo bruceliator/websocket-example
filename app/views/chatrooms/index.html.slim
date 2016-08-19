@@ -1,0 +1,9 @@
+.mui-container-fluid
+  .mui--text-center
+    h2 Chatrooms
+  .mui-panel.mui--z2
+    = simple_form_for @chatroom do |f|
+      = f.input :topic, label: false, wrapper_html: {class: 'mui-textfield'}, placeholder: 'Topic name'
+      = f.button :submit, 'Create chatroom', class: 'mui-btn mui-btn--raised'
+  ul
+    = render @chatrooms

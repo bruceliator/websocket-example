@@ -1,0 +1,30 @@
+$gutter-width: 1rem;
+
+@import 'variables/colors';
+@import 'font-awesome';
+@import 'components/gutter';
+@import 'components/typography';
+
+a {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  .mui-appbar {
+    padding: 0 15px;
+  }
+
+  a {
+    color: white;
+
+    &:hover, &:focus, &:active {
+      color: white;
+    }
+  }
+}

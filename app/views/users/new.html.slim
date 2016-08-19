@@ -1,0 +1,7 @@
+.mui-container-fluid
+  .mui--text-center
+    h2 SIGN UP
+  .mui-panel.mui--z2
+    = simple_form_for @user do |f|
+      = f.input :username, label: false, wrapper_html: { class: 'mui-textfield' }, placeholder: 'User name'
+      = f.button :submit, class: 'mui-btn mui-btn--raised'

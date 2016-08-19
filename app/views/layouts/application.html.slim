@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title ActionCableExample
+    = csrf_meta_tags
+
+    = action_cable_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag  '//cdn.muicss.com/mui-0.7.0/css/mui.min.css'
+    = javascript_include_tag '//cdn.muicss.com/mui-0.7.0/js/mui.min.js'
+  body
+    nav.mui-container-fluid
+      .mui-appbar
+        table width='100%'
+          tr style='vertical-align:middle;'
+            td.mui--appbar-height
+              h1.gutter-right
+                a href='/' Web Sockets
+            - if logged_in?
+              td
+                h3
+                  = link_to 'Chatrooms', chatrooms_path
+            td.mui--appbar-height align='right'
+              - if logged_in?
+                h2
+                  = fa_icon 'user 2x', class: 'gutter-right'
+                  = link_to 'Logout', sessions_path, method: :delete
+              - else
+                h2
+                  = link_to 'Log in', new_sessions_path, class: 'gutter-right'
+                  = link_to 'Sign up', new_users_path
+    = yield
